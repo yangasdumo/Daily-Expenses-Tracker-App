@@ -3,8 +3,8 @@ const flash = require('express-flash');
 const session = require('express-session');
 const exphbs = require("express-handlebars");
 const bodyParser = require('body-parser');
-const Routes = require('./waiters');
-const waiter = require ('./waiters.js')
+// const Routes = require('./Tracker');
+// const waiter = require ('./daily-expenses')
 
 const app = express();
 app.use(flash());
@@ -13,7 +13,7 @@ app.use(flash());
 //database
 const pgp = require('pg-promise')({});
 
-const local_database_url = 'postgres://postgres:codex123@localhost:5432/';
+const local_database_url = 'postgres://postgres:codex123@localhost:5432/thedaily';
 const connectionString = process.env.DATABASE_URL || local_database_url;
 
 const config = {
@@ -43,24 +43,26 @@ app.use(bodyParser.json());
 
 const db = pgp(config)
 
-const routes = Routes(db)
+// const routes = Routes(db)
 
 
-app.get("/", function (req, res) {
+app.get('/', function (req, res) {
     res.render("index", {
     });
 })
 
-app.post('/waiters', async function (req, res){
-    let name = req.body.letters;
-    console.log(name)
-    await routes.addName(name);
-    res.render('days');
-});
+app.get('/sign',function(req,res){
+
+    res.render('sign_up');
+})
+
+app.get('sign',function(req,res){
+
+    res.redirect('/')
+})
 
 
-
-const PORT = process.env.PORT || 1000;
+const PORT = process.env.PORT || 2400;
 
 app.listen(PORT, function () {
     console.log('App starting on port', PORT);

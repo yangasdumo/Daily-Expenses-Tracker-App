@@ -13,22 +13,21 @@
     <div class="Main-container">
 
         <div class="topnav"><a href="/">
-                {{!-- <a class="active" href="/">Home</a> --}}
                 <a href="/"></a>
         </div>
 
         <h1 style="">Daily Expenses Tracker App</h1>
 
         <p class="error-message" id="msg" >{{error}}</p>
-        <form action="/waiters" method="POST">
+        <form action="/sign" method="post">
             <div class="container">
                 <input type="text" name="letters" class="NameEntered" value="" placeholder="enter a your name">
                 <input type="text" name="letters" class="NameEntered" value="" placeholder="enter a your  last name">
                 <input type="text" name="letters" class="NameEntered" value="" placeholder="enter your email ">
-                <button type="submit" class="btnblue">Sign in</button> 
-                
+                <button type="submit" class="btnblue">SUBMIT</button>
                 <hr>
             </div>
+        
             <div class="Customers">
                 {{#each output}}
                 <div class="output">
@@ -36,8 +35,8 @@
                 </div>
                 {{/each}}
             </div>
+           
         </form>
-        <a href="/sign"><p> Sign </p></a>
     </div>
 </body>
 
