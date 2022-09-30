@@ -5,21 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="theCatas">
-<form action="//{{name}}" method="post">
+<form action="/expenses" method="post">
 <h2>Track Your Expenses </h2>
-<h5><i>Please select a category and enter an amount you spent this week below</i></h5>
+<h3><i>Please select a category and enter an amount you spent this week below</i></h3>
+<br>
+<br>
 <select name="catagory">
-  <option name='catagory' value="food">food</option>
-  <option name='catagory' value="toiletries">toiletries</option>
-  <option name='catagory' value="travel">travel</option>
-  <option name='catagory' value="communication">communication</option>
+  <option name='catagory' value="1">food</option>
+  <option name='catagory' value="2">toiletries</option>
+  <option name='catagory' value="3">travel</option>
+  <option name='catagory' value="4">communication</option>
 </select>
 <input type="number" value="" name="amount" >
+<br>
+<br>
 <input type="date" name="expense_date" value="" placeholder=""><br><br>
-<a href="/"><button class="btn">Track Expences</button></a>
+<a href="/page3"><button class="btnblue">Track Expences</button></a>
     </div>
 </body>
 </html>
