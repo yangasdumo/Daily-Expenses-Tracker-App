@@ -48,13 +48,13 @@ const Routes = Routes1(db)
 app.get('/', function (req, res) {
     res.render("index", {
     });
-})
+});
 
 
 app.get('/sign',function(req,res){
 
     res.render('sign_up');
-})
+});
 
 
 app.post('/sign',async function(req,res){
@@ -64,7 +64,6 @@ app.post('/sign',async function(req,res){
 
     if (name && surname && email){
         await Routes.adduser(name,surname,email)
-
     }else{
         console.log('zompo')
     }
@@ -74,7 +73,6 @@ app.post('/sign',async function(req,res){
 app.post('/log',async function(req,res){
 
     let name = req.body.username
-    // let surname = req.body.usersurname
     let email = req.body.useremail
 
    let emails = email.toUpperCase()
@@ -90,7 +88,6 @@ app.get('/expenses',function(req,res){
     
     res.render('expenses')
 })
-
 
 
 
