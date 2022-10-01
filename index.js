@@ -68,7 +68,7 @@ app.post('/sign',async function(req,res){
         console.log('zompo')
     }
     res.redirect('/')
-})
+});
 
 app.post('/log',async function(req,res){
 
