@@ -19,7 +19,7 @@
 
         <h1 style="color:rgb(149, 255, 0)">Daily Expenses Tracker App</h1>
 
-        <p class="error-message" id="msg" >{{error}}</p>
+        
         <form action="/log" method="POST">
             <div class="container">
                 <input type="text" name="username" class="NameEntered" value="" placeholder="enter a your name">
@@ -29,7 +29,7 @@
                 <br>
                 <br>
                 <br>
-                <button type="submit" class="btnblue">Sign in</button> 
+                <button type="submit" class="btnblue">Log in</button> 
             </div>
             <div class="Customers">
                 {{#each output}}
@@ -39,7 +39,7 @@
                 {{/each}}
             </div>
         </form>
-        <a href="/sign"><h2><p style="color: yellow;"><strong>Sign-Up</strong></p></h2></a>
+        <a href="/sign"><h2><p style="color: yellow;"><strong>Register</strong></p></h2></a>
     </div>
 </body>
 

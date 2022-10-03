@@ -14,7 +14,9 @@
 
         <h1 style="color:yellowgreen">Daily Expenses Tracker Sign-Up Page</h1>
 
-        <p class="error-message" id="msg" >{{error}}</p>
+        <div class="message">
+				{{messages.message}}
+			</div>
         <form action="/sign" method="post">
             <div class="container">
                 <input type="text" name="username" class="NameEntered" value="" placeholder="enter a your name">

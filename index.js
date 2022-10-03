@@ -51,6 +51,13 @@ app.get('/', function (req, res) {
 });
 
 
+app.post('/expenses',function(req,res){
+
+    res.render('trackers')
+});
+
+
+
 app.get('/sign',function(req,res){
 
     res.render('sign_up');
@@ -70,6 +77,7 @@ app.post('/sign',async function(req,res){
     res.redirect('/')
 });
 
+
 app.post('/log',async function(req,res){
 
     let name = req.body.username
@@ -84,17 +92,30 @@ app.post('/log',async function(req,res){
     res.redirect('/expenses')
 });
 
-app.get('/expenses',function(req,res){
+app.get('/expenses',async function(req,res){
     
-    res.render('expenses')
-})
+     let getamount = req.body.amount
+     let getdate = req.body.dates
+     let getcatagories_id =req.body.catagories_id
 
+     if(getamount && getdate && getcatagories_id ){
+         await Routes.getExpense() 
+     }
+    res.render('expenses')
+});
 
 
 app.get('/page2',function(req,res){
 
     res.render ('trackers')
-})
+});
+
+
+app.get('/trackers'),async function(re,res){
+       await Routes.removeData()
+       req.flash('message', "All Data Has Been Cleared !!")
+    res.redirect('/')
+}
 
 const PORT = process.env.PORT || 2400;
 

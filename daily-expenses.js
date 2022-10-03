@@ -31,11 +31,23 @@ module.exports = function Tracker(db) {
         }
     }
 
+    async function getExpense() {
+        await db.oneOrNone('insert into expenses (id ,catagories_id,amount,dates) values($1,$2,$3,$4)', [id , catagories_id, amount, dates])
+
+    }
+
+
+    
+    async function removeData() {
+        await db.none("DELETE FROM catagories ")
+    }
+
+       
 
     return {
         adduser,
-        checknames
-       
-
+        checknames,
+        getExpense,
+        removeData
     }
 }

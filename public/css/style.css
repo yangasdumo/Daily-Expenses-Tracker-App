@@ -7,6 +7,25 @@ body {
 	background-size: cover;
 }
 
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 80%;
+  }
+  
+  td, th {
+	border: 1px solid yellowgreen;
+	height: 20px;
+	text-align: center;
+	padding: 10px;
+  }
+  
+  tr:nth-child(even) {
+	background-color:yellowgreen;
+  }
+
+
+
 .container {
 	padding-top: 150px;
 	/* padding-bottom: 20px; */
