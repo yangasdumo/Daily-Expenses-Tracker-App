@@ -87,6 +87,7 @@ app.post('/log',async function(req,res){
    let emails = email.toUpperCase()
     name.toUpperCase()
     var check = await Routes.checknames(emails)
+    req.flash('message', "Welcome to the Trackers App !!")
     if(check){
         res.redirect("back")
     }else
