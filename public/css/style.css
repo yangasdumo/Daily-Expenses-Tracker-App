@@ -6,23 +6,32 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+.message{
+	color: red;
+	font-size:30px ;
+}
 
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
-	width: 80%;
+	width: 100%;
   }
+
   
   td, th {
-	border: 1px solid yellowgreen;
+	border: 1px solid rgb(151, 253, 49);
 	height: 20px;
 	text-align: center;
 	padding: 10px;
+	color: white;
+	text-emphasis-style: bold;
   }
   
   tr:nth-child(even) {
-	background-color:yellowgreen;
+	background-color:rgb(123, 248, 73);
   }
+
+
 
 
 

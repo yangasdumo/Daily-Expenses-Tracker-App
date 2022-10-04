@@ -51,10 +51,10 @@ app.get('/', function (req, res) {
 });
 
 
-app.post('/expenses',function(req,res){
+// app.post('/expenses',function(req,res){
 
-    res.render('trackers')
-});
+//     res.render('trackers')
+// });
 
 
 
@@ -71,6 +71,7 @@ app.post('/sign',async function(req,res){
 
     if (name && surname && email){
         await Routes.adduser(name,surname,email)
+        req.flash('message', "Welcome to the Trackers App !!")
     }else{
         console.log('zompo')
     }
@@ -92,29 +93,43 @@ app.post('/log',async function(req,res){
     res.redirect('/expenses')
 });
 
-app.get('/expenses',async function(req,res){
+app.post('/expenses',async function(req,res){
     
      let getamount = req.body.amount
-     let getdate = req.body.dates
-     let getcatagories_id =req.body.catagories_id
+     let getdate = req.body.expense_date
+     let getcatagory =req.body.catagory
+     
+    //  console.log(req.body)
+    //  console.log('tso')
 
-     if(getamount && getdate && getcatagories_id ){
-         await Routes.getExpense() 
+     if(getamount && getdate && getcatagory ){
+         await Routes.insertExpense(getcatagory, getamount,getdate,)
+         req.flash('message', "Your Expense has been added !!")
+     }else{
+         console.log('')
      }
     res.render('expenses')
 });
 
 
-app.get('/page2',function(req,res){
 
-    res.render ('trackers')
+app.get('/expenses',async function(req,res){
+
+    res.render('expenses')
+});
+
+app.get('/trackers', async function(req,res){
+ 
+    let getexpense = await Routes. getData()
+    console.log(getexpense)
+    res.render ('trackers',{getexpense})
 });
 
 
 app.get('/trackers'),async function(re,res){
        await Routes.removeData()
        req.flash('message', "All Data Has Been Cleared !!")
-    res.redirect('/')
+    res.redirect('/trackers')
 }
 
 const PORT = process.env.PORT || 2400;

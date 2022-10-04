@@ -11,48 +11,27 @@
 
 <body>
 
+      <div class="message">
+				{{messages.message}}
+			</div>
+
     <table>
         <h1 style="color: beige;">Tracker's Expenses</h1>
         <br>
         <br>
         <thead>
             <tr>
-                <th style="color: bisque;">ID</th>
                 <th style="color: bisque;">catagories_id</th>
                 <th style="color: beige;">amount</th>
                 <th style="color: beige;">Date</th>
             </tr>
-
+           {{#each getexpense}}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{this.catagories_id}}</td>
+                <td>{{this.amount}}</td>
+                <td>{{this.dates}}</td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+             {{/each}}
     </table>
     <br>
     <br>
